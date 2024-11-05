@@ -86,7 +86,7 @@ export default {
         async deleteUser(id) {
             if (confirm('Are you sure you want to delete this user?')) {
                 try {
-                    await axios.delete(`/users/${id}`);
+                    await axios.delete(`/users/${id}/delete`);
                     this.message = 'User deletion scheduled.';
                     this.fetchUsers();
                 } catch (error) {

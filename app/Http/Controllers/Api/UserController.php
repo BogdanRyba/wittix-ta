@@ -39,7 +39,6 @@ class UserController extends Controller
     public function destroy(DeleteUserRequest $request, int $id)
     {
         DeleteUserJob::dispatch($id);
-        return redirect()->route('users.index')->with('status', 'User deletion scheduled.');
     }
 
 }

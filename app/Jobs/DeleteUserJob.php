@@ -13,8 +13,6 @@ class DeleteUserJob implements ShouldQueue
 {
     use Queueable, InteractsWithQueue, SerializesModels;
 
-    private UserService $userService;
-
     /**
      * Create a new job instance.
      * @param int $userId
@@ -26,8 +24,8 @@ class DeleteUserJob implements ShouldQueue
     /**
      * Execute the job.
      */
-    public function handle(): void
+    public function handle(UserService $userService): void
     {
-        $this->userService->deleteUser($this->userId);
+        $userService->deleteUser($this->userId);
     }
 }
